@@ -10,7 +10,9 @@ const LOCAL_KEY = 'array-users-contacts';
 export const App = () => {
   const [contacts, setContacts] = useState(() => {
     const localContacts = JSON.parse(localStorage.getItem(LOCAL_KEY));
-    return localContacts.length > 0 ? localContacts : userContacts;
+    return localContacts && localContacts.length > 0
+      ? localContacts
+      : userContacts;
   });
 
   const [filter, setFilter] = useState('');
