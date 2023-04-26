@@ -6,12 +6,12 @@ import Filter from './filter';
 import css from './App.module.css';
 
 const LOCAL_KEY = 'array-users-contacts';
+const isLocalStorage = JSON.parse(localStorage.getItem(LOCAL_KEY));
 
 export const App = () => {
   const [contacts, setContacts] = useState(() => {
-    const localContacts = JSON.parse(localStorage.getItem(LOCAL_KEY));
-    return localContacts && localContacts.length > 0
-      ? localContacts
+    return isLocalStorage && isLocalStorage.length > 0
+      ? isLocalStorage
       : userContacts;
   });
 
