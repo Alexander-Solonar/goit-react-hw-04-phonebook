@@ -1,14 +1,18 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
+import { Contacts } from '../App';
 
-const ContactForm = ({ addContacts }) => {
+interface ContactFormProps {
+  addContacts: (newContact: Contacts) => void;
+}
+
+const ContactForm: FC<ContactFormProps> = ({ addContacts }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const handleInputChange = event => {
-    const { name, value } = event.target;
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
 
     switch (name) {
       case 'name':
@@ -22,7 +26,7 @@ const ContactForm = ({ addContacts }) => {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     const userContacts = {
@@ -73,10 +77,6 @@ const ContactForm = ({ addContacts }) => {
       </button>
     </form>
   );
-};
-
-ContactForm.propTypes = {
-  addContacts: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
