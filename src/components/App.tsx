@@ -61,7 +61,7 @@ export const App = () => {
     <div className={css.container}>
       <h1>PhoneBook</h1>
       <ContactForm addContacts={addContacts} />
-      <h2>Contacts</h2>
+      <h2>My Contacts</h2>
       <Filter value={filter} filterChange={filterChange} />
       <ContactList data={visibleContacts()} deleteContact={deleteContact} />
     </div>
