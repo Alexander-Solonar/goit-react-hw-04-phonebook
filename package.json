@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:js": "tslint -c tslint.json src/**/*.{ts,tsx}"
+    "lint:ts": "eslint src/**/*.{ts,tsx}"
   },
   "eslintConfig": {
     "extends": [
